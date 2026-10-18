@@ -16,10 +16,6 @@
       <div class="page-header__content">
         <p class="page-header__eyebrow">ДЗ 6 · HTTP и API</p>
         <h1 class="page-header__title">API-витрина</h1>
-        <p class="page-header__lead">
-          Выберите тему, замените демонстрационный ресурс и свяжите этот интерфейс
-          с собственным REST API.
-        </p>
       </div>
     </header>
 
@@ -38,12 +34,41 @@
 
         <p class="endpoint">
           Endpoint:
-          <code class="endpoint__value" data-ui="endpoint">http://localhost:3000/items</code>
+          <code class="endpoint__value" data-ui="endpoint">http://localhost:3000/movies</code>
         </p>
+
+        <form class="collection-filters" data-form="filters" aria-label="Фильтр и сортировка">
+          <div class="field">
+            <label class="field__label" for="filter-genre">Жанр</label>
+            <select class="field__control" id="filter-genre" name="genre">
+              <option value="">Все жанры</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="filter-sort">Сортировка</label>
+            <select class="field__control" id="filter-sort" name="sort">
+              <option value="">Как в базе</option>
+              <option value="-rating">Сначала высокий рейтинг</option>
+              <option value="rating">Сначала низкий рейтинг</option>
+              <option value="-year">Сначала новые</option>
+              <option value="year">Сначала старые</option>
+              <option value="title">По названию</option>
+            </select>
+          </div>
+
+          <button
+            class="button button--secondary collection-filters__reset"
+            type="button"
+            data-action="reset-filters"
+          >
+            Сбросить
+          </button>
+        </form>
 
         <div class="status" data-ui="status" role="status" aria-live="polite">
           <strong class="status__title">Ожидание подключения</strong>
-          <span class="status__text">Реализуйте первый GET-запрос в script.js.</span>
+          <span class="status__text"></span>
         </div>
 
         <div class="collection" data-ui="collection" aria-live="polite"></div>
@@ -66,15 +91,70 @@
               name="title"
               type="text"
               minlength="2"
-              placeholder="Замените подсказку под свою тему"
+              placeholder="Название фильма"
               required
             />
           </div>
 
-          <p class="entry-form__hint">
-            Добавьте остальные поля своей модели. Всего должно быть не меньше четырех
-            содержательных свойств помимо id.
-          </p>
+          <div class="field">
+            <label class="field__label" for="entry-genre">Жанр</label>
+            <select class="field__control" id="entry-genre" name="genre" required>
+              <option value="">Выберите жанр</option>
+              <option value="Боевик">Боевик</option>
+              <option value="Фантастика">Фантастика</option>
+              <option value="Приключения">Приключения</option>
+              <option value="Драма">Драма</option>
+              <option value="Мелодрама">Мелодрама</option>
+              <option value="Комедия">Комедия</option>
+              <option value="Триллер">Триллер</option>
+              <option value="Ужасы">Ужасы</option>
+              <option value="Детектив">Детектив</option>
+              <option value="Вестерн">Вестерн</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="entry-year">Год выхода</label>
+            <input
+              class="field__control"
+              id="entry-year"
+              name="year"
+              type="number"
+              min="1895"
+              max="2030"
+              step="1"
+              placeholder="Год выхода фильма"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="entry-rating">Рейтинг</label>
+            <input
+              class="field__control"
+              id="entry-rating"
+              name="rating"
+              type="number"
+              min="1"
+              max="10"
+              step="0.1"
+              placeholder="Рейтинг от 1 до 10"
+              required
+            />
+          </div>
+
+          <div class="field field--checkbox">
+            <input class="field__checkbox" id="entry-watched" name="watched" type="checkbox" />
+            <label class="field__label" for="entry-watched">Уже посмотрел</label>
+          </div>
+
+          <p
+            class="entry-form__message"
+            data-ui="form-message"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
 
           <div class="entry-form__actions">
             <button class="button button--primary" type="submit" data-action="submit">
@@ -84,12 +164,6 @@
         </form>
       </section>
     </main>
-
-    <footer class="page-footer">
-      <p class="page-footer__text">
-        Источник результата — ответы API. Не дублируйте содержимое db.json в JavaScript.
-      </p>
-    </footer>
   </body>
 </html>
 

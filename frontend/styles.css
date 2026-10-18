@@ -131,7 +131,10 @@ button:disabled {
 }
 
 .button:focus-visible,
-.field__control:focus-visible {
+.field__control:focus-visible,
+.field__checkbox:focus-visible,
+.card__badge:focus-visible,
+.card__delete:focus-visible {
   outline: 3px solid rgba(91, 76, 226, 0.28);
   outline-offset: 3px;
 }
@@ -164,6 +167,14 @@ button:disabled {
   max-width: 100%;
   overflow-wrap: anywhere;
   color: var(--color-primary-dark);
+}
+
+.collection-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 .status {
@@ -225,8 +236,50 @@ button:disabled {
   display: grid;
   gap: 7px;
   margin: 0;
+  padding: 0;
   color: var(--color-muted);
   line-height: 1.45;
+  list-style: none;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.card__badge,
+.card__delete {
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 740;
+}
+
+.card__badge {
+  border-color: var(--color-line);
+  color: var(--color-muted);
+  background: var(--color-soft);
+}
+
+.card__badge--watched {
+  border-color: #a8ded3;
+  color: #0f5f69;
+  background: #e3f6f8;
+}
+
+.card__delete {
+  margin-left: auto;
+  border-color: #f0b5ae;
+  color: var(--color-danger);
+  background: transparent;
+}
+
+.card__delete:hover:not(:disabled) {
+  background: #fff2f0;
 }
 
 .entry-form {
@@ -258,6 +311,35 @@ button:disabled {
 textarea.field__control {
   min-height: 108px;
   resize: vertical;
+}
+
+.field--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field__checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.entry-form__message {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.entry-form__message--success {
+  color: #0f5f69;
+}
+
+.entry-form__message--error {
+  color: var(--color-danger);
 }
 
 .entry-form__hint {
@@ -313,7 +395,8 @@ textarea.field__control {
     flex-direction: column;
   }
 
-  .collection {
+  .collection,
+  .collection-filters {
     grid-template-columns: 1fr;
   }
 
