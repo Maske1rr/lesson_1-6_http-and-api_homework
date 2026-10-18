@@ -131,7 +131,8 @@ button:disabled {
 }
 
 .button:focus-visible,
-.field__control:focus-visible {
+.field__control:focus-visible,
+.field__checkbox:focus-visible {
   outline: 3px solid rgba(91, 76, 226, 0.28);
   outline-offset: 3px;
 }
@@ -225,8 +226,26 @@ button:disabled {
   display: grid;
   gap: 7px;
   margin: 0;
+  padding: 0;
   color: var(--color-muted);
   line-height: 1.45;
+  list-style: none;
+}
+
+.card__badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--color-muted);
+  background: var(--color-soft);
+  font-size: 0.8rem;
+  font-weight: 740;
+}
+
+.card__badge--watched {
+  color: #0f5f69;
+  background: #e3f6f8;
 }
 
 .entry-form {
@@ -258,6 +277,35 @@ button:disabled {
 textarea.field__control {
   min-height: 108px;
   resize: vertical;
+}
+
+.field--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field__checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.entry-form__message {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.entry-form__message--success {
+  color: #0f5f69;
+}
+
+.entry-form__message--error {
+  color: var(--color-danger);
 }
 
 .entry-form__hint {

@@ -1,12 +1,36 @@
 {
-  "items": [
+  "movies": [
     {
-      "id": "starter-1",
-      "title": "Замените демонстрационную запись",
-      "category": "starter",
-      "value": 0,
-      "isActive": true
+      "id": "1",
+      "title": "Интерстеллар",
+      "genre": "Фантастика",
+      "year": 2014,
+      "rating": 8.7,
+      "watched": true
+    },
+    {
+      "id": "2",
+      "title": "Крепкий орешек",
+      "genre": "Боевик",
+      "year": 1988,
+      "rating": 8.2,
+      "watched": true
+    },
+    {
+      "id": "3",
+      "title": "Достать ножи",
+      "genre": "Детектив",
+      "year": 2019,
+      "rating": 7.9,
+      "watched": false
+    },
+    {
+      "id": "4",
+      "title": "Зеленая миля",
+      "genre": "Драма",
+      "year": 1999,
+      "rating": 8.6,
+      "watched": false
     }
   ]
 }
-
